@@ -19,8 +19,12 @@ CREATE TABLE enrolments(
     course_id INTEGER NOT NULL,
     grade TEXT,
      PRIMARY KEY (student_id, course_id),
-    FOREIGN KEY (student_id) REFERENCES students(id),
-    FOREIGN KEY (course_id) REFERENCES courses(id)
+    FOREIGN KEY (student_id) 
+        REFERENCES students(id),
+        ON DELETE RESTRICT
+    FOREIGN KEY (course_id) 
+        REFERENCES courses(id)
+        ON DELETE RESTRICT
 );
 
 -- 3.insert rows
